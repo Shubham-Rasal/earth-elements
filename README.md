@@ -1,8 +1,1 @@
-# blank
-
-blank
-
-## Attributes
-
-- **Database**: mongodb
-- **Storage Adapter**: localDisk
+The portfolio collection has a collection of main categories and each category has a collection of subcategories. Each sub category has a collection of projects that are essentials images with tile and description.

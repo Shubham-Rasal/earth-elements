@@ -11,6 +11,13 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'category',
+      label: 'Category',
+      type: 'relationship',
+      relationTo: 'categories',
+      required: false,
+    },
   ],
   upload: true,
 }
