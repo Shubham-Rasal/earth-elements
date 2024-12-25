@@ -1,47 +1,25 @@
-'use client'
-import { useState } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+import Image from 'next/image'
 
-export default function EarthElements() {
-  const [email, setEmail] = useState('')
+export default async function EarthElements() {
+  const payload = await getPayload({
+    config: configPromise,
+  })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle newsletter subscription
-    console.log('Subscribed:', email)
-    setEmail('')
-  }
+  const categories = await payload.find({
+    collection: 'categories',
+  })
+
+  const media = await payload.find({
+    collection: 'media',
+  })
+
+
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div className="text-2xl font-bold">Earth Elements</div>
-        <nav>
-          <ul className="flex space-x-6">
-            <li>
-              <a href="#" className="hover:underline">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Categories
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
       <main>
         <section className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -55,16 +33,7 @@ export default function EarthElements() {
               <button className="bg-black text-white px-6 py-3 rounded">Start Project</button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img
-                src="https://picsum.photos/1920"
-                alt="Interior design 1"
-                className="w-full h-full object-cover"
-              />
-              <img
-                src="https://picsum.photos/1920"
-                alt="Interior design 2"
-                className="w-full h-full object-cover"
-              />
+             <Image src={media.docs[0].url} alt="Image 1" width={300} height={300} />
             </div>
           </div>
           <div className="flex justify-between mt-12 text-center">
@@ -135,7 +104,7 @@ export default function EarthElements() {
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-8">What We Create</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {categories.docs.map((item: any, i) => (
               <div key={i} className="relative">
                 <img
                   src={`https://picsum.photos/192${i}`}
@@ -143,7 +112,7 @@ export default function EarthElements() {
                   className="w-full h-64 object-cover rounded"
                 />
                 <div className="absolute bottom-0 left-0 bg-white p-2 rounded-tr">
-                  <h3 className="font-semibold">Interior Design</h3>
+                  <h3 className="font-semibold">{item.title}</h3>
                 </div>
               </div>
             ))}
@@ -218,29 +187,6 @@ export default function EarthElements() {
                 </button>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="bg-gray-100 py-12">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-            <p className="mb-8">
-              Be the first to discover trends, inspirations, and special offers as we bring the
-              world of design directly to your inbox
-            </p>
-            <form onSubmit={handleSubmit} className="flex max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-grow px-4 py-2 rounded-l border-t border-b border-l"
-                required
-              />
-              <button type="submit" className="bg-black text-white px-6 py-2 rounded-r">
-                Subscribe
-              </button>
-            </form>
           </div>
         </section>
       </main>

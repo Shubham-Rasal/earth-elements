@@ -8,6 +8,7 @@ const interFont = Inter({
 });
 
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -24,7 +25,11 @@ export default function RootLayout({
       <body
         className={`${interFont.variable} antialiased`}
       >
+           <Navbar />
         {children}
+        <footer className="bg-gray-800 text-white py-4 text-center">
+        © 2023 Tile Agency. All rights reserved.
+      </footer>
       </body>
     </html>
   );
