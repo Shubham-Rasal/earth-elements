@@ -8,13 +8,13 @@ export default async function EarthElements() {
     config: configPromise,
   })
 
-  const categories = await payload.find({
-    collection: 'categories',
-  })
+  // const categories = await payload.find({
+  //   collection: 'categories',
+  // })
 
-  const media = await payload.find({
-    collection: 'media',
-  })
+  // const media = await payload.find({
+  //   collection: 'media',
+  // })
 
 
 
@@ -33,7 +33,7 @@ export default async function EarthElements() {
               <button className="bg-black text-white px-6 py-3 rounded">Start Project</button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-             <Image src={media.docs[0].url!} alt="Image 1" width={300} height={300} />
+             {/* <Image src={media.docs[0].url!} alt="Image 1" width={300} height={300} /> */}
             </div>
           </div>
           <div className="flex justify-between mt-12 text-center">
@@ -104,7 +104,7 @@ export default async function EarthElements() {
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-8">What We Create</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {categories.docs.map((item: any, i) => (
+            {/* {categories.docs.map((item: any, i) => (
               <div key={i} className="relative">
                 <img
                   src={`https://picsum.photos/192${i}`}
@@ -115,7 +115,7 @@ export default async function EarthElements() {
                   <h3 className="font-semibold">{item.title}</h3>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
         </section>
 
