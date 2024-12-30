@@ -1,6 +1,6 @@
 {
     "functions": {
-      "admin/**/*": {
+      "**/*": {
         "maxDuration": 60 
       }
     }
