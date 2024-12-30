@@ -3,6 +3,9 @@
       "app/admin/**/*": {
         "maxDuration": 60 
       },
+      "app/admin": {
+        "maxDuration": 60 
+      },
       "app/api/**/*": {
         "maxDuration": 60 
       }
