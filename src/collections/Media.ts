@@ -18,6 +18,23 @@ export const Media: CollectionConfig = {
       relationTo: 'categories',
       required: false,
     },
+    
   ],
-  upload: true,
+  upload: {
+    adminThumbnail: 'thumbnail',
+    imageSizes: [
+      {
+        height: 400,
+        width: 400,
+        crop: "center",
+        name: "thumbnail",
+      },
+      {
+        width: 900,
+        height: 450,
+        crop: "center",
+        name: "sixteenByNineMedium",
+      },
+    ],
+  },
 }

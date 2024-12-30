@@ -33,7 +33,7 @@ export default async function EarthElements() {
               <button className="bg-black text-white px-6 py-3 rounded">Start Project</button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-             <Image src={media.docs[0].url} alt="Image 1" width={300} height={300} />
+             <Image src={media.docs[0].url!} alt="Image 1" width={300} height={300} />
             </div>
           </div>
           <div className="flex justify-between mt-12 text-center">
@@ -191,46 +191,7 @@ export default async function EarthElements() {
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Earth Elements</h3>
-              <p>Your premier destination for luxury and modern interior design.</p>
-            </div>
-            {['Our Services', 'Our Projects', 'Resources'].map((title) => (
-              <div key={title}>
-                <h3 className="text-xl font-bold mb-4">{title}</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Link 1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Link 2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Link 3
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Link 4
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-            <p>&copy; 2023 Earth Elements. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   )
 }
