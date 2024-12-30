@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { Media } from '@/payload-types'
+import { Product } from '@/payload-types'
 export default async function Products() {
   const payload = await getPayload({
     config: configPromise,
@@ -29,7 +29,12 @@ export default async function Products() {
               <h2 className="text-xl font-semibold text-gray-900 mb-2">{category.title}</h2>
               <ul className="list-disc pl-6">
                 {products.docs
-                  .filter((product) => product.mainCategory.id === category.id)
+                  .filter((product) => 
+                    typeof product.mainCategory === 'object' && 
+                    product.mainCategory !== null && 
+                    'id' in product.mainCategory && 
+                    product.mainCategory.id === category.id
+                  )
                   .map((product) => (
                     <li key={product.id} className="mb-2">
                       <Link
