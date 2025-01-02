@@ -22,17 +22,18 @@ export default async function ProductsPage() {
         <div className="sticky top-0 z-10 flex w-full flex-col items-center justify-center gap-2 bg-gray-50 px-4 py-6 sm:flex-row sm:justify-between sm:px-6">
           <div className="flex flex-wrap gap-2 bg-gray-100 p-2 rounded-md">
             <span className="text-sm font-medium">Categories:</span>
-            {/* <Suspense fallback={<span>Loading...</span>}> */}
-            {Object.keys(data).map((category) => (
-              <Badge key={category} className="cursor-pointer text-sm" category={category}>
-                {category}
-              </Badge>
-            ))}
-            {/* </Suspense> */}
+            <Suspense fallback={<span>Loading...</span>}>
+              {Object.keys(data).map((category) => (
+                <Badge key={category} className="cursor-pointer text-sm" category={category}>
+                  {category}
+                </Badge>
+              ))}
+            </Suspense>
           </div>
         </div>
-
-        <Products products={products as ProductWithRelations[]} />
+        <Suspense fallback={<span>Loading...</span>}>
+          <Products products={products as ProductWithRelations[]} />
+        </Suspense>
       </div>
     </div>
   )
