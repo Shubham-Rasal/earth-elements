@@ -27,3 +27,6 @@ On clicking on a category, the user should be taken to the list of products in t
   Project Image
   Project Description
 - Contact page that has the contact details of the company.
+
+
+create a client side product tag component that uses url paramss to set category

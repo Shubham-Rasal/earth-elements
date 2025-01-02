@@ -11,7 +11,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import Projects from './collections/Projects'
-import {Categories, Subcategories} from './collections/Categories'
+import { Categories, Subcategories } from './collections/Categories'
 import Products from './collections/Products'
 
 const filename = fileURLToPath(import.meta.url)

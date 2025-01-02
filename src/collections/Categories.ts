@@ -15,7 +15,7 @@ const Categories: CollectionConfig = {
         label: 'Category Title',
         type: 'text',
         required: true,
-      },
+      }
     ],
   };
 
@@ -47,4 +47,4 @@ const Subcategories: CollectionConfig = {
 
 
 
-export { Categories, Subcategories };
+export { Categories , Subcategories };
