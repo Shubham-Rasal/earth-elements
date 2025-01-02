@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
@@ -83,4 +83,3 @@ export default function Navbar() {
     </nav>
   )
 }
-
