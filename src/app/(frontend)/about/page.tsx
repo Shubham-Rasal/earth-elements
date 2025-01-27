@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="hidden md:block">
             <div className="relative w-full h-[600px] rounded-lg overflow-hidden shadow-2xl">
               <Image
-                src="/stone-texture.jpg"
+                src="/api/media/file/wall.webp"
                 alt="Natural Stone Texture"
                 layout="fill"
                 objectFit="cover"
