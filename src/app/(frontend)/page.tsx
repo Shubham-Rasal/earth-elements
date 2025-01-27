@@ -51,7 +51,7 @@ export default function Home() {
           {/* Left Column */}
           <div className="md:col-span-3 space-y-4">
             <p className="text-white/80">
-              Having a home you love means having furnishing that you're proud of. We are proud to bring you trendy
+              Having a home you love means having furnishing that you&apos;re proud of. We are proud to bring you trendy
               furniture for every room in the house, with the added bonus.
             </p>
             <button className="flex items-center text-[#8fa88d] hover:text-white">
