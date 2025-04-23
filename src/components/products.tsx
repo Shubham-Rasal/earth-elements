@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import { Product, Media, Category, Subcategory } from '@/payload-types'
+import Link from 'next/link'
 
 export type ProductWithRelations = Product & {
   media: Media
@@ -45,20 +46,22 @@ export default function Products({ products }: { products: ProductWithRelations[
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
               >
-                <div className="overflow-hidden group cursor-pointer bg-gray-50 rounded-lg  hover:shadow-md transition-shadow duration-300">
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image
-                      src={product.media.url!}
-                      alt={product.title}
-                      fill
-                      className="object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
-                    />
+                <Link href={`/products/${product.id}`}>
+                  <div className="overflow-hidden group cursor-pointer bg-gray-50 rounded-lg hover:shadow-md transition-shadow duration-300">
+                    <div className="relative aspect-square overflow-hidden">
+                      <Image
+                        src={product.media.url!}
+                        alt={product.title}
+                        fill
+                        className="object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-medium text-sm text-gray-900">{product.title}</h3>
+                      <p className="text-sm text-gray-500">{product.subCategory.title}</p>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-sm text-gray-900">{product.title}</h3>
-                    <p className="text-sm text-gray-500">{product.subCategory.title}</p>
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>
